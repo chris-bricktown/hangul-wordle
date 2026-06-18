@@ -120,7 +120,7 @@
   <div id="board"></div>
 
   <div id="controls">
-    <input id="guess" maxlength="3" autocomplete="off" placeholder="예: 사다리" />
+    <input id="guess" maxlength="3" autocomplete="off" placeholder="" />
     <button id="submit">입력</button>
   </div>
 
@@ -243,6 +243,9 @@
     setMsg("", "");
     inputEl.value = "";
     inputEl.disabled = false;
+    let example = answer;
+    while (example === answer) example = WORDS[Math.floor(Math.random() * WORDS.length)];
+    inputEl.placeholder = `예: ${example}`;
     inputEl.focus();
   }
 
