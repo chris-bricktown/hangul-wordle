@@ -44,4 +44,4 @@ python -m http.server 8000   # http://localhost:8000 접속
 
 - 순수 HTML/CSS/JavaScript, 외부 라이브러리 없음
 - 한글 음절을 초/중/종성으로 분해하는 로직(`decompose`)으로 자모 단위 힌트 구현
-- 정답 단어 풀은 `index.html` 내 `WORDS` 배열에서 관리 (현재 세 글자 단어 40개)
+- 정답 단어 풀은 `index.html` 내 `WORDS` 배열에서 관리 (현재 세 글자 단어 507개)
