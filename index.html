@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>한글 꼬들 — 다섯 글자 단어 맞히기</title>
+<title>한글 꼬들 — 세 글자 단어 맞히기</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -39,16 +39,16 @@
   }
   .row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
   .syll {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 700;
     border: 2px solid var(--border);
     border-radius: 10px;
@@ -114,12 +114,12 @@
 </head>
 <body>
   <h1>한글 꼬들</h1>
-  <div class="sub">다섯 글자 단어를 6번 안에 맞혀보세요</div>
+  <div class="sub">세 글자 단어를 6번 안에 맞혀보세요</div>
 
   <div id="board"></div>
 
   <div id="controls">
-    <input id="guess" maxlength="5" autocomplete="off" placeholder="예: 컴퓨터공학" />
+    <input id="guess" maxlength="3" autocomplete="off" placeholder="예: 사다리" />
     <button id="submit">입력</button>
   </div>
 
@@ -135,16 +135,12 @@
 (function () {
   "use strict";
 
-  // 다섯 글자 한글 단어 풀
+  // 세 글자 한글 단어 풀
   const WORDS = [
-    "컴퓨터공학","무지개다리","자율주행차","대중교통비","국제경제학",
-    "정보통신부","사회복지사","인터넷쇼핑","온라인강의","스마트워치",
-    "아파트단지","지하철역사","국립박물관","서울특별시","대통령선거",
-    "경제성장률","국가대표팀","세계여행기","어린이공원","도서관카드",
-    "영화감독상","음악감상실","한국어교실","영어선생님","수학여행지",
-    "딸기우유맛","바닷가마을","눈사람모자","가을하늘색","크리스마스",
-    "오렌지주스","아이스크림","서울대학교","졸업사진첩","동물원입장",
-    "생일파티날","봄소풍날씨","가족여행지","직장동료들","한밤의별빛"
+    "사다리","자전거","도서관","강아지","고양이","코끼리","자동차","비행기","무지개","거북이",
+    "호랑이","원숭이","다람쥐","딸기잼","포도주","김치국","된장국","미역국","떡볶이","김밥집",
+    "운동장","놀이터","미술관","박물관","영화관","수영장","시청역","편의점","세탁기","냉장고",
+    "청소기","선풍기","전화기","계산기","지우개","색종이","풍선껌","손수건","우체국","은행원"
   ];
 
   const CHO = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
@@ -162,7 +158,7 @@
   }
 
   const MAX_ROWS = 6;
-  const WORD_LEN = 5;
+  const WORD_LEN = 3;
   let answer = "";
   let answerJamo = [];   // [[초,중,종], [초,중,종]]
   let currentRow = 0;
@@ -241,9 +237,9 @@
   function submitGuess() {
     if (over) return;
     const raw = inputEl.value.trim();
-    if (raw.length !== WORD_LEN) { setMsg("다섯 글자를 입력하세요.", "warn"); return; }
+    if (raw.length !== WORD_LEN) { setMsg("세 글자를 입력하세요.", "warn"); return; }
     const jamo = [...raw].map(decompose);
-    if (jamo.some(j => j === null)) { setMsg("완성된 한글 다섯 글자만 가능해요.", "warn"); return; }
+    if (jamo.some(j => j === null)) { setMsg("완성된 한글 세 글자만 가능해요.", "warn"); return; }
 
     const guessChars = [...raw];
     const syllScore = scoreSyllables(guessChars);
