@@ -226,10 +226,14 @@
     setMsg("", "");
     inputEl.value = "";
     inputEl.disabled = false;
+    randomizePlaceholder();
+    inputEl.focus();
+  }
+
+  function randomizePlaceholder() {
     let example = answer;
     while (example === answer) example = WORDS[Math.floor(Math.random() * WORDS.length)];
     inputEl.placeholder = `예: ${example}`;
-    inputEl.focus();
   }
 
   function setMsg(text, cls) {
@@ -294,6 +298,7 @@
     });
 
     inputEl.value = "";
+    randomizePlaceholder();
 
     if (raw === answer) {
       over = true;
