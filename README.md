@@ -3,6 +3,10 @@
 두 글자 한글 단어를 6번 안에 맞히는 한글판 Wordle 게임입니다. 별도 빌드나
 의존성 없이 **단일 HTML 파일**(`index.html`)로 동작합니다.
 
+> 이 브랜치에는 별개 프로젝트인 [`blueberry-shop/`](./blueberry-shop) —
+> 백엔드 없이 구현한 블루베리 홍보·판매 쇼핑몰도 함께 들어 있습니다.
+> 자세한 내용은 [`blueberry-shop/README.md`](./blueberry-shop/README.md) 참고.
+
 ## 플레이 방법
 
 1. `index.html`을 웹 브라우저에서 엽니다.
